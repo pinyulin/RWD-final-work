@@ -1,0 +1,124 @@
+.login-register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $fontcolor-dark;
+  padding: 50px 0;
+  .title {
+    text-align: center;
+    margin-bottom: 35px;
+    h3 {
+      font-family: "Noto Sans CJK TC black", "PingFang TC Regular", "Microsoft JhengHei", sans-serif;
+      font-size: $font-s * 3;
+    }
+    p {
+      font-family: "Noto Sans CJK TC medium", "PingFang TC Regular", "Microsoft JhengHei", sans-serif;
+      font-size: $font-s * 1.25;
+      line-height: 1.8;
+    }
+  }
+  .pure-form {
+    max-width: 620px;
+    border-top: 3px solid $fontcolor-eyecatch;
+    box-shadow: 3px 3px 5px 1px #c1c1c1;
+    padding: 10px 15px 3px 15px;
+    @include pad-below {
+      max-width: 300px;
+    }
+    h4 {
+      font-family: "Noto Sans CJK TC black", "PingFang TC Regular", "Microsoft JhengHei", sans-serif;
+      font-size: $font-m;
+      text-align: center;
+      margin-bottom: $font-s;
+    }
+    label {
+      font-weight: bold;
+      font-size: $font-s;
+    }
+    .email-input {
+      margin-bottom: 15px;
+    }
+    .email-input,
+    .pw-input {
+      position: relative;
+      input {
+        padding-left: 32px;
+      }
+    }
+    i {
+      position: absolute;
+      top: 9px;
+      opacity: 0.5;
+    }
+    .fa-envelope {
+      left: 9px;
+    }
+    .fa-lock {
+      left: 10px;
+    }
+    a {
+      display: inline-block;
+      color: $fontcolor-eyecatch;
+      font-size: $font-s * 0.875;
+      text-decoration: none;
+      margin-bottom: 30px;
+    }
+    .registerbox {
+      display: flex;
+      justify-content: space-between;
+      @include pad-below {
+        flex-direction: column;
+      }
+      .terms,
+      > div {
+        width: 49%;
+        @include pad-below {
+          width: 100%;
+        }
+      }
+      .terms {
+        font-size: $font-s * 0.875;
+        line-height: 1.5;
+        .openterms {
+          display: none;
+          font-size: $font-s;
+          margin-bottom: 5px;
+          @include pad-below {
+            display: inline-block;
+          }
+        }
+        p span {
+          font-size: $font-m;
+        }
+      }
+    }
+  }
+}
+@include pad-below {
+  .terms {
+    .openfont {
+      display: inline;
+    }
+    .closefont {
+      display: none;
+    }
+    p {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s;
+    }
+  }
+  .showterms .terms {
+    .openfont {
+      display: none;
+    }
+    .closefont {
+      display: inline;
+    }
+    p {
+      max-height: 150px;
+      margin-bottom: 20px;
+    }
+  }
+}

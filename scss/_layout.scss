@@ -1,0 +1,274 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Helvetica Neue", Arial, "Microsoft JhengHei", "PingFang TC Regular", "Noto Sans CJK TC Regular",
+    sans-serif;
+}
+.wrap {
+  max-width: 1024px;
+  position: relative;
+  letter-spacing: 0.5px;
+  background: $bgcolor-main;
+  margin: 0 auto;
+}
+.container {
+  padding: 0 42px;
+  @include desktop {
+    padding: 0 30px;
+  }
+  @include pad {
+    padding: 0 12px;
+  }
+  @include iphone {
+    padding: 0 10px;
+  }
+}
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 420px;
+  background-image: url(../images/header_desktop.png);
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: right center;
+  @include pad {
+    background-position: 90%;
+  }
+  @include iphone {
+    background-image: url(../images/header_mobile.png);
+    background-position: center center;
+  }
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  background-color: $hdcolor-bg;
+  h1 a {
+    display: block;
+    width: 120px;
+    height: 24px;
+    background-image: url(../images/logo_w@svg.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    @include hide-text;
+    @include pad {
+      width: 90px;
+      height: 18px;
+    }
+  }
+}
+.topmenu {
+  display: flex;
+  a {
+    color: $fontcolor-light;
+    text-decoration: none;
+  }
+  .order {
+    padding: 20px 20px;
+    background: $fontcolor-eyecatch;
+    &:hover {
+      background: $bgcolor-pale;
+    }
+    &:active {
+      background: $activecolor;
+    }
+  }
+}
+.menulist {
+  display: flex;
+  @include iphone {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    transition: max-height 0.3s;
+  }
+  li a {
+    display: block;
+    padding: 20px 32px;
+    @include desktop {
+      padding: 20px 26px;
+    }
+    @include pad {
+      padding: 20px 20px;
+    }
+    @include iphone {
+      text-align: right;
+      background: $hdcolor-bg;
+      border-top: 1px solid rgba(250, 250, 250, 0.3);
+      padding: 20px 50px;
+    }
+    &:hover,
+    &:focus {
+      background: $hdcolor-hover;
+    }
+    &:active {
+      background: $hdcolor-active;
+    }
+  }
+}
+@include iphone {
+  .showhammenu .menulist {
+    max-height: 168px;
+  }
+}
+.hambutton {
+  display: none;
+  @include iphone {
+    display: block;
+    line-height: 56px;
+    color: $fontcolor-light;
+    padding: 0 21px;
+  }
+  &:hover,
+  &:focus {
+    background: $hdcolor-hover;
+  }
+  &:active {
+    background: $hdcolor-active;
+  }
+}
+.slogan {
+  max-width: 500px;
+  color: $fontcolor-light;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.35);
+  transition: color 1s;
+  padding: 26px 0;
+  margin: 0 auto;
+  @include pad {
+    max-width: 460px;
+  }
+  @include iphone {
+    padding: 22px 0;
+  }
+  h2 {
+    font-size: $font-xl;
+    padding-bottom: 20px;
+    margin: 0 40px;
+    @include desktop {
+      margin: 0 32px;
+    }
+    @include pad {
+      margin: 0 24px;
+    }
+    @include iphone {
+      line-height: 1.3;
+      padding-bottom: 15px;
+    }
+    @include mobile360 {
+      margin: 0 5px;
+    }
+  }
+  p {
+    line-height: 1.5;
+  }
+  .titleshift {
+    display: none;
+    @include iphone {
+      display: block;
+    }
+  }
+}
+@include iphone {
+  .fadeslogan .slogan {
+    color: rgba(250, 250, 250, 0.15);
+  }
+}
+.footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: $fontcolor-dark;
+  padding-top: 50px;
+  @include pad-below {
+    justify-content: center;
+  }
+  @include iphone {
+    flex-direction: column;
+    padding: 50px 40px 0 40px;
+  }
+  @include mobile360 {
+    padding: 50px 20px 0 20px;
+  }
+  > li {
+    width: 32%;
+    margin-bottom: 50px;
+    line-height: 1.2;
+    @include pad-below {
+      width: 45%;
+    }
+    @include iphone {
+      width: 100%;
+    }
+  }
+  h3 {
+    font-size: $font-l;
+    margin-bottom: 16px;
+  }
+  h2 {
+    width: 243px;
+    height: 48px;
+    background-image: url(../images/logo_l@svg.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    @include hide-text;
+    margin-bottom: 22px;
+    @include desktop {
+      width: 220px;
+    }
+  }
+  .about {
+    @include pad-below {
+      display: none;
+    }
+  }
+  .contact {
+    list-style: disc;
+    list-style-position: inside;
+    // text-indent: -5px;
+    @include iphone {
+      font-size: $font-m;
+    }
+    a {
+      color: orangered;
+    }
+  }
+  .socialmedia {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    ul {
+      display: flex;
+      font-size: $font-xl;
+      a {
+        display: block;
+        width: $font-xl;
+        height: $font-xl;
+        overflow: hidden;
+        margin-left: 12px;
+      }
+      .fa-google-plus-square {
+        color: #db4437;
+      }
+      .fa-twitter-square {
+        color: #41abe1;
+      }
+      .fa-facebook-square {
+        color: #3a5795;
+      }
+    }
+  }
+}
